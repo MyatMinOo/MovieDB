@@ -33,7 +33,6 @@ class Now_Playing_Adapt(var now_play_list : List<ResultsItem> = ArrayList<Result
                 .load("https://image.tmdb.org/t/p/w500/"+resultsItem.backdropPath)
                 .into(itemView.now_playing_image)
             itemView.now_playing_title.text=resultsItem.title
-            itemView.now_playing_vote.text=resultsItem.voteCount.toString()
         }
 
         override fun onClick(now: View?) {

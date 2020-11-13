@@ -33,7 +33,6 @@ class Popular_Adapt(var poular_list : List<ResultsItem> = ArrayList<ResultsItem>
                 .load("https://image.tmdb.org/t/p/w500/" + resultsItem.posterPath)
                 .into(itemView.popular_image)
             itemView.popular_title.text = resultsItem.title
-            itemView.popular_vote.text = resultsItem.voteCount.toString()
         }
         override fun onClick(popu: View?) {
             popuClickListener?.onClick(resultsItem)
