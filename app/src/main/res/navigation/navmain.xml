@@ -23,15 +23,15 @@
             android:id="@+id/action_top_ratedFragment2_to_detailsFragment"
             app:destination="@id/detailsFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/latestFragment"
-        android:name="com.mmm.moviedb.fragments.LatestFragment"
-        android:label="Latest"
-        tools:layout="@layout/fragment_latest">
-        <action
-            android:id="@+id/action_latestFragment2_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/latestFragment"-->
+<!--        android:name="com.mmm.moviedb.fragments.LatestFragment"-->
+<!--        android:label="Latest"-->
+<!--        tools:layout="@layout/fragment_latest">-->
+<!--        <action-->
+<!--            android:id="@+id/action_latestFragment2_to_detailsFragment"-->
+<!--            app:destination="@id/detailsFragment" />-->
+<!--    </fragment>-->
     <fragment
         android:id="@+id/now_playingFragment"
         android:name="com.mmm.moviedb.fragments.Now_playingFragment"
@@ -63,5 +63,9 @@
         android:id="@+id/detailsFragment"
         android:name="com.mmm.moviedb.fragments.DetailsFragment"
         android:label="Detail"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 </navigation>
