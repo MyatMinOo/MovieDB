@@ -56,7 +56,8 @@ class Top_ratedFragment : Fragment() , Toprated_adapter.ClickListener{
     }
 
     override fun onClick(result: ResultsItem) {
-        var action = Top_ratedFragmentDirections.actionTopRatedFragment2ToDetailsFragment(result.id.toString())
+        var id = result.id
+        var action = Top_ratedFragmentDirections.actionTopRatedFragment2ToDetailsFragment(id.toString())
         findNavController().navigate(action)
     }
 }
