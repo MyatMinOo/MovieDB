@@ -13,14 +13,14 @@ interface ApiInterface {
     fun getNowPlaying(
         @Query("api_key") api_key : String,
         @Query("language") language : String,
-        @Query("page") page : String
+        @Query("page") page : Int
     ) : Call<Movie>
 
     @GET("popular")
     fun getPopular(
         @Query("api_key") api_key : String,
         @Query("language") language : String,
-        @Query("page") page : String
+        @Query("page") page : Int
     ) : Call<Movie>
 
     @GET("top_rated")
