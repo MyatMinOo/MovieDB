@@ -1,5 +1,7 @@
 package com.mmm.moviedb.api
 
+
+import com.mmm.moviedb.model.Details
 import com.mmm.moviedb.model.Movie
 import retrofit2.Call
 import retrofit2.http.GET
@@ -38,7 +40,7 @@ interface ApiInterface {
     //Detail
     @GET("{movie_id}")
     fun getDetail(
-        @Path("movie_id") movieid : Int,
+        @Path("movie_id") movieId : Int,
         @Query("api_key") apiKey : String
-    ): Call<Movie>
+    ): Call<Details>
 }

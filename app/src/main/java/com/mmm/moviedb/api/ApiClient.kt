@@ -1,5 +1,6 @@
 package com.mmm.moviedb.api
 
+import com.mmm.moviedb.model.Details
 import com.mmm.moviedb.model.Movie
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -33,7 +34,7 @@ class ApiClient {
     }
 
     //Detail
-    fun getDetailClient(apiKey: String, movieid: String): Call<Movie> {
-        return apiInterface.getDetail(movieid.toInt(), apiKey)
+    fun getDetailClient(movieId: String, apiKey: String): Call<Details> {
+        return apiInterface.getDetail(movieId.toInt(), apiKey)
     }
 }
