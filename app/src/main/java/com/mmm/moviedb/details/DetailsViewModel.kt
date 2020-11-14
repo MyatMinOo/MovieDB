@@ -13,19 +13,30 @@ import retrofit2.Response
 
 class DetailsViewModel : ViewModel() {
     private var details : MutableLiveData<Details> = MutableLiveData()
+    private var loading : MutableLiveData<Boolean> = MutableLiveData()
+    private var errorStatus : MutableLiveData<Boolean> = MutableLiveData()
+    private var errorMessage : MutableLiveData<String> = MutableLiveData()
 
     fun getDetails() : LiveData<Details> = details
+    fun getLoading() : LiveData<Boolean> = loading
+    fun getErrorStatus() : LiveData<Boolean> = errorStatus
+    fun getErrorMessage() : LiveData<String> = errorMessage
 
     fun loadDetails(id:String){
         var apiClient = ApiClient()
-        var apiCall = apiClient.getDetailClient(ApiClient.API_KEY,id)
+        var apiCall = apiClient.getDetailClient(id,ApiClient.API_KEY)
         apiCall.enqueue(object : Callback<Details>{
             override fun onResponse(call: Call<Details>, response: Response<Details>) {
                 details.value = response.body()
+                errorStatus.value = false
+                loading.value = false
             }
 
             override fun onFailure(call: Call<Details>, t: Throwable) {
-                Log.d("Error>>>",t.toString())
+                errorStatus.value = true
+                errorMessage.value = t.toString()
+                loading.value = false
+
             }
 
         })

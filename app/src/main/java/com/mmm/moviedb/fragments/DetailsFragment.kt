@@ -40,7 +40,28 @@ class DetailsFragment : Fragment() {
         detailsViewModel.getDetails().observe(viewLifecycleOwner, Observer {
             details_title.text = it.originalTitle
             details_overview.text = it.overview
+            Picasso.get().load("https://image.tmdb.org/t/p/w500/"+it.backdropPath).into(details_backdrop_poster)
+            Picasso.get().load("https://image.tmdb.org/t/p/w500/"+it.posterPath).into(details_poster)
+            details_budget.text = it.budget.toString()
+            details_status.text = it.status
+            details_language.text = it.originalLanguage
+            details_popularity.text = it.popularity.toString()+" Popularity"
+            details_release_date.text = it.releaseDate
+            details_runtime.text = it.runtime.toString() + "min"
         })
+
+
+      detailsViewModel.getLoading().observe(viewLifecycleOwner, Observer {
+          isLoading -> progressBar.visibility = if(isLoading) View.VISIBLE else View.GONE
+      })
+
+      detailsViewModel.getErrorStatus().observe(viewLifecycleOwner, Observer {
+          status -> if (status){
+          detailsViewModel.getErrorMessage().observe(viewLifecycleOwner, Observer {
+              tv_errorMsg.text = it
+          })
+      }
+      })
 
     }
 
