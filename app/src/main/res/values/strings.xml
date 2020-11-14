@@ -2,4 +2,9 @@
     <string name="app_name">MovieDB</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="overview">Resolving packages.microsoft.com (packages.microsoft.com)... 52.163.211.218
+Connecting to packages.microsoft.com (packages.microsoft.com)|52.163.211.218|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 68143908 (65M) [application/octet-stream]
+Saving to: ‘teams_1.3.00.5153_amd64.deb’</string>
 </resources>
